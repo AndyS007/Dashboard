@@ -37,20 +37,9 @@ export function AuthProvider({ children }) {
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
-  async function signInWithGoogle() {
+  function signInWithGoogle() {
     const provider = new GoogleAuthProvider();
-    const result = await signInWithPopup(auth, provider);
-
-    // The signed-in user info.
-    // const user = result.user;
-    // This gives you a Google Access Token.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    console.log("credential", credential);
-    const token = credential?.idToken;
-    console.log("token", token);
-    return signInWithCredential(auth, credential).then((userCredential) => {
-      console.log("userCredential", userCredential);
-    });
+    return signInWithPopup(auth, provider);
   }
 
   function logIn(email, password) {
@@ -78,9 +67,6 @@ export function AuthProvider({ children }) {
       setCurrentUser(user);
       setLoading(false);
       console.log("user state changed", user);
-      // user?.getIdToken().then((token) => {
-      //   console.log("token", token);
-      // });
     });
     return unsubscribe;
   }, []);
@@ -98,8 +84,8 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {/* {!loading && children} */}
-      {children}
+      {!loading && children}
+      {/* {children} */}
     </AuthContext.Provider>
   );
 }
