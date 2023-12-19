@@ -11,15 +11,16 @@ import {
   updatePassword as updatePasswordFn,
   User as FirebaseUser,
   GoogleAuthProvider,
+  UserCredential,
 } from "firebase/auth";
 
 const AuthContext = React.createContext<AuthContextProps>(undefined!);
 
 interface AuthContextProps {
   currentUser: FirebaseUser | null;
-  logIn: (email: string, password: string) => Promise<void>;
-  signInWithGoogle: () => Promise<void>;
-  signUp: (email: string, password: string) => Promise<void>;
+  logIn: (email: string, password: string) => Promise<UserCredential>;
+  signInWithGoogle: () => Promise<UserCredential>;
+  signUp: (email: string, password: string) => Promise<UserCredential>;
   logOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
   updateEmail: (email: string) => Promise<void>;
