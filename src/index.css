@@ -15,7 +15,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #64c9ff;
   text-decoration: inherit;
 }
 
@@ -25,15 +25,21 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  font-family: 'Inter', sans-serif;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100%;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.1;
+  margin: 0;
 }
 
 button {
