@@ -12,6 +12,13 @@ const DashboardContainer = styled.div`
   align-items: stretch;
   height: 100%;
 `;
+const LoginInContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+`;
 
 const DashBoard = () => {
   const { currentUser } = useAuth();
@@ -40,15 +47,21 @@ const DashBoard = () => {
 
   return (
     <>
-      <DashboardContainer>
-        {!currentUser ? (
+      {!currentUser ? (
+        <LoginInContainer>
+          <div>
+            <h1>FinPod Game</h1>
+            <h2>Sign in to start</h2>
+          </div>
           <GoogleSignIn />
-        ) : (
-          childUIDs.map((childUID, index) => (
+        </LoginInContainer>
+      ) : (
+        <DashboardContainer>
+          {childUIDs.map((childUID, index) => (
             <DashboardCard key={index} fid={fidRef.current} uid={childUID} />
-          ))
-        )}
-      </DashboardContainer>
+          ))}
+        </DashboardContainer>
+      )}
     </>
   );
 };

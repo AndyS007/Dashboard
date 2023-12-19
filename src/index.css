@@ -49,13 +49,16 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   cursor: pointer;
-  transition: border-color 0.25s;
+  /* transition: border-color 0.25s; */
+  color: #fff;
+  background-color: #747bff;
+
 }
 
 button:hover {
-  border-color: #646cff;
+  opacity: 0.8;
 }
 
 button:focus,
@@ -73,7 +76,4 @@ button:focus-visible {
     color: #747bff;
   }
 
-  button {
-    background-color: #f9f9f9;
-  }
 }
