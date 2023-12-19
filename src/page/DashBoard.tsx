@@ -14,7 +14,7 @@ const DashboardContainer = styled.div`
 `;
 
 const DashBoard = () => {
-  const { currentUser, logOut } = useAuth();
+  const { currentUser } = useAuth();
   const fidRef = useRef<string>(null!);
   const [childUIDs, setChildUIDs] = useState<string[]>([]);
   useEffect(() => {

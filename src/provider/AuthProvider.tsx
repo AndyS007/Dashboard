@@ -11,7 +11,6 @@ import {
   updatePassword as updatePasswordFn,
   User as FirebaseUser,
   GoogleAuthProvider,
-  signInWithCredential,
 } from "firebase/auth";
 
 const AuthContext = React.createContext<AuthContextProps>(undefined!);
