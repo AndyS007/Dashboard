@@ -1,7 +1,8 @@
 #root {
-  margin: 0 auto;
   text-align: center;
-  min-height: 100vh;
+  height: 100%;
+  padding: 1em;
+  box-sizing: border-box;
 }
 
 

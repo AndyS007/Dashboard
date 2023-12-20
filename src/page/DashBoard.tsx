@@ -10,7 +10,6 @@ const DashboardContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  padding: 1rem;
   gap: 1rem;
   height: 100%;
 `;
