@@ -12,6 +12,9 @@ const DashboardContainer = styled.div`
   align-items: stretch;
   gap: 1rem;
   height: 100%;
+  min-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
 `;
 const LoginInContainer = styled.div`
   display: flex;

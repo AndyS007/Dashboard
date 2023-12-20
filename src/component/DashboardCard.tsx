@@ -57,12 +57,15 @@ const CardItemTeam = styled(CardItem)`
 const CardItemNumber = styled(CardItem)`
   padding: 0.5em;
 `;
+const CardItemPendingBalance = styled(CardItemNumber)`
+  border-bottom: none;
+`;
 const CardItemTask = styled(CardItem)`
   border-bottom: none;
   flex: 1;
   align-items: stretch;
   gap: 1em;
-  padding: 1em;
+  padding: 0 1em 1em 1em;
   justify-content: flex-start;
 `;
 // a single task
@@ -153,10 +156,10 @@ const DashboardCard: React.FC<{
         <h2>Cash</h2>
         <h1>$ {balance}</h1>
       </CardItemNumber>
-      <CardItemNumber>
+      <CardItemPendingBalance>
         <h2>Pending Balance</h2>
         <h1>$ {pendingBalance}</h1>
-      </CardItemNumber>
+      </CardItemPendingBalance>
       <CardItemTask>
         {tasks.map((task, index) => (
           <SubTask key={index}>

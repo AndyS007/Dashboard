@@ -27,7 +27,7 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   min-width: 320px;
-  height: 100vh;
+  height: 100%;
 }
 
 h1 {
