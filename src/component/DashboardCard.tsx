@@ -25,13 +25,14 @@ import { firestore } from "../lib/firebase";
 // `;
 const CardContainer = styled.div`
   flex: 1;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
   color: #333;
   border: 3px solid #00b4eb;
   border-radius: 15px;
   background-color: #ffffff;
-  margin: 1rem;
+  // margin: 1rem;
   // padding: 1.5rem;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 `;
@@ -60,6 +61,8 @@ const CardItemTask = styled(CardItem)`
   border-bottom: none;
   flex: 1;
   align-items: stretch;
+  gap: 1em;
+  padding: 1em;
   justify-content: flex-start;
 `;
 // a single task
@@ -69,7 +72,7 @@ const SubTask = styled.div`
   border-radius: 0.5em;
   padding: 5px 0.5em;
   color: #ffffff;
-  margin: 0.5em;
+  // margin: 0.5em;
 `;
 
 type Task = {
