@@ -26,14 +26,13 @@ import { firestore } from "../lib/firebase";
 const CardContainer = styled.div`
   flex: 1;
   max-width: 50%;
+  min-width: fit-content;
   display: flex;
   flex-direction: column;
   color: #333;
   border: 3px solid #00b4eb;
   border-radius: 15px;
   background-color: #ffffff;
-  // margin: 1rem;
-  // padding: 1.5rem;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {

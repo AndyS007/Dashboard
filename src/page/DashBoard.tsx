@@ -8,6 +8,7 @@ import { useAuth } from "../provider/AuthProvider";
 
 const DashboardContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
   gap: 1rem;
@@ -18,7 +19,6 @@ const DashboardContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
   }
 `;
 const LoginInContainer = styled.div`
