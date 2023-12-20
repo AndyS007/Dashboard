@@ -15,6 +15,11 @@ const DashboardContainer = styled.div`
   min-height: 100vh;
   padding: 1rem;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const LoginInContainer = styled.div`
   display: flex;

@@ -35,6 +35,10 @@ const CardContainer = styled.div`
   // margin: 1rem;
   // padding: 1.5rem;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const CardItem = styled.div`
