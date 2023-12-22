@@ -52,13 +52,25 @@ const CardItem = styled.div`
 
 const CardItemTeam = styled(CardItem)`
   padding: 0;
-  & h1 {
+  h1 {
     color: #00b4eb;
     padding: 0.4em;
   }
 `;
+const TransformSign = styled.h1`
+  transform: rotate(90deg);
+  color: orange;
+  font-size: 5em;
+  font-weight: 900;
+`
 const CardItemNumber = styled(CardItem)`
   padding: 0.5em;
+`;
+const CardItemNumberTotal = styled(CardItemNumber)`
+ h3{
+    color: orange;
+    padding: 0.4em;
+  }
 `;
 const CardItemPendingBalance = styled(CardItemNumber)`
   border-bottom: none;
@@ -151,14 +163,24 @@ const DashboardCard: React.FC<{
       <CardItemTeam>
         <h1>{name}</h1>
       </CardItemTeam>
-      <CardItemNumber>
+      <CardItemNumberTotal>
         <h2>Total</h2>
         <h1>$ {balance + pendingBalance}</h1>
-      </CardItemNumber>
+      </CardItemNumberTotal>
+      <CardItem>
+      <TransformSign>
+        =
+        </TransformSign>
+      </CardItem>
       <CardItemNumber>
         <h2>Cash</h2>
         <h1>$ {balance}</h1>
       </CardItemNumber>
+      <CardItem>
+        <TransformSign>
+          +
+        </TransformSign>
+      </CardItem>
       <CardItemPendingBalance>
         <h2>Pending Balance</h2>
         <h1>$ {pendingBalance}</h1>
