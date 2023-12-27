@@ -62,12 +62,12 @@ const TransformSign = styled.h1`
   color: orange;
   font-size: 5em;
   font-weight: 900;
-`
+`;
 const CardItemNumber = styled(CardItem)`
   padding: 0.5em;
 `;
 const CardItemNumberTotal = styled(CardItemNumber)`
- h3{
+  h1 {
     color: orange;
     padding: 0.4em;
   }
@@ -168,18 +168,14 @@ const DashboardCard: React.FC<{
         <h1>$ {balance + pendingBalance}</h1>
       </CardItemNumberTotal>
       <CardItem>
-      <TransformSign>
-        =
-        </TransformSign>
+        <TransformSign>=</TransformSign>
       </CardItem>
       <CardItemNumber>
         <h2>Cash</h2>
         <h1>$ {balance}</h1>
       </CardItemNumber>
       <CardItem>
-        <TransformSign>
-          +
-        </TransformSign>
+        <TransformSign>+</TransformSign>
       </CardItem>
       <CardItemPendingBalance>
         <h2>Pending Balance</h2>
