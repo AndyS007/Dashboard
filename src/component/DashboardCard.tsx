@@ -69,7 +69,6 @@ const CardItemNumber = styled(CardItem)`
 const CardItemNumberTotal = styled(CardItemNumber)`
   h1 {
     color: orange;
-    padding: 0.4em;
   }
 `;
 const CardItemPendingBalance = styled(CardItemNumber)`
