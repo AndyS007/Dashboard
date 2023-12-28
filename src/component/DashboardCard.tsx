@@ -58,10 +58,8 @@ const CardItemTeam = styled(CardItem)`
   }
 `;
 const TransformSign = styled.h1`
-  transform: rotate(90deg);
   color: orange;
   font-size: 5em;
-  font-weight: 900;
 `;
 const CardItemNumber = styled(CardItem)`
   padding: 0.5em;
