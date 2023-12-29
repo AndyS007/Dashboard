@@ -8,7 +8,7 @@ import { useAuth } from "../provider/AuthProvider";
 
 const DashboardContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: stretch;
   gap: 1rem;

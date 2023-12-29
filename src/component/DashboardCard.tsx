@@ -25,8 +25,7 @@ import { firestore } from "../lib/firebase";
 // `;
 const CardContainer = styled.div`
   flex: 1;
-  max-width: 50%;
-  min-width: fit-content;
+  // max-width: 25%;
   display: flex;
   flex-direction: column;
   color: #333;
@@ -76,6 +75,7 @@ const CardItemTask = styled(CardItem)`
   border-bottom: none;
   flex: 1;
   align-items: stretch;
+  max-width: 100%;
   gap: 1em;
   padding: 0 1em 1em 1em;
   justify-content: flex-start;
@@ -85,15 +85,28 @@ const SubTask = styled.div`
   font-size: 1.5em;
   background-color: #00b4eb;
   border-radius: 0.5em;
-  padding: 5px 0.5em;
+  padding: 0.4em 0.5em;
   color: #ffffff;
-  // margin: 0.5em;
+  word-break: break-word;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 type Task = {
   title: string;
   rewardFiatAmount: number;
+  createdAt: Date;
 };
+const SubTaskNumber = styled.span`
+  flex: 0 0 auto;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: orange;
+  background-color: #ffffff;
+  border-radius: 0.3em;
+  padding: 0.1em 0.3em;
+`;
 
 const DashboardCard: React.FC<{
   fid: string;
@@ -137,10 +150,13 @@ const DashboardCard: React.FC<{
         tasks.push({
           title: doc.data().title,
           rewardFiatAmount: doc.data().rewardFiatAmount,
+          createdAt: doc.data().createdAt.toDate(),
         });
       });
       console.log("Current tasks:", tasks);
-      setTasks(tasks);
+      setTasks(
+        tasks.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+      );
     });
   };
   useEffect(() => {
@@ -181,7 +197,15 @@ const DashboardCard: React.FC<{
       <CardItemTask>
         {tasks.map((task, index) => (
           <SubTask key={index}>
-            {task.title} $ {task.rewardFiatAmount}
+            <span
+              style={{
+                marginRight: "0.5em",
+                textAlign: "left",
+              }}
+            >
+              {task.title}
+            </span>
+            <SubTaskNumber>$ {task.rewardFiatAmount}</SubTaskNumber>
           </SubTask>
         ))}
       </CardItemTask>
