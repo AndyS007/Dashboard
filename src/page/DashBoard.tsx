@@ -5,6 +5,8 @@ import DashboardCard from "../component/DashboardCard";
 import GoogleSignIn from "../component/GoogleSignIn";
 import { firestore } from "../lib/firebase";
 import { useAuth } from "../provider/AuthProvider";
+import { EmailSignIn } from "../component/EmailLogin";
+import { MdLogout } from "react-icons/md";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -24,13 +26,42 @@ const DashboardContainer = styled.div`
 const LoginInContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   height: 100vh;
 `;
 
+const LogoutButtonContainer = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const LogoutButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+`;
+
 const DashBoard = () => {
-  const { currentUser } = useAuth();
+  const { currentUser, logOut } = useAuth();
   const fidRef = useRef<string>(null!);
   const [childUIDs, setChildUIDs] = useState<string[]>([]);
   useEffect(() => {
@@ -54,6 +85,14 @@ const DashBoard = () => {
     fetchData().catch((err) => console.error(err));
   }, [currentUser]);
 
+  const handleLogout = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+
   return (
     <>
       {!currentUser ? (
@@ -62,14 +101,25 @@ const DashBoard = () => {
             <h1>FinPod Game</h1>
             <h2>Sign in to start</h2>
           </div>
-          <GoogleSignIn />
+          <div>
+            <EmailSignIn />
+
+            <GoogleSignIn />
+          </div>
         </LoginInContainer>
       ) : (
-        <DashboardContainer>
-          {childUIDs.map((childUID, index) => (
-            <DashboardCard key={index} fid={fidRef.current} uid={childUID} />
-          ))}
-        </DashboardContainer>
+        <>
+          <LogoutButtonContainer>
+            <LogoutButton onClick={handleLogout} title='Logout'>
+              <MdLogout />
+            </LogoutButton>
+          </LogoutButtonContainer>
+          <DashboardContainer>
+            {childUIDs.map((childUID, index) => (
+              <DashboardCard key={index} fid={fidRef.current} uid={childUID} />
+            ))}
+          </DashboardContainer>
+        </>
       )}
     </>
   );
